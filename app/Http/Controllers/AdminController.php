@@ -33,7 +33,7 @@ class AdminController extends Controller
 
         $id = Auth::user()->id;
         $adminData = User::find($id);
-        return view('admin.admin_ptofile_view', compact('adminData'));
+        return view('admin.admin_profile_view', compact('adminData'));
     } // End Method
 
     public function AdminProfileStore(Request $request) {

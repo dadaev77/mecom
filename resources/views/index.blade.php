@@ -1,8 +1,8 @@
 @extends('dashboard')
 @section('user')
-
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
     <div class="page-header breadcrumb-wrap">
         <div class="container">
             <div class="breadcrumb">
@@ -46,6 +46,7 @@
                                            aria-controls="change-password" aria-selected="true"><i class="fi-rs-user mr-10"></i>Change Password</a>
                                     </li>
 
+
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ route('user.logout') }}"><i class="fi-rs-sign-out mr-10"></i>Logout</a>
                                     </li>
@@ -58,11 +59,12 @@
                                     <div class="card">
                                         <div class="card-header">
                                             <h3 class="mb-0">Hello {{ Auth::user()->name }}</h3>
-                                            <br/>
-                                            <img id="showImage" src="{{ (!empty($userData->photo)) ? url('upload/user_images/'.$userData->photo):url
-                                                        ('upload/no_image.jpg')}}"
-                                                 alt="User"
-                                                 class="rounded-circle p-1 bg-primary" width="110">
+                                            <br>
+                                            <img id="showImage"
+                                                 src="{{ (!empty($userData->photo)) ? url('upload/user_images/'.$userData->photo):url('upload/no_image.jpg') }}"
+                                                 alt="User" class="rounded-circle p-1 bg-primary" width="110">
+
+
                                         </div>
                                         <div class="card-body">
                                             <p>
@@ -181,7 +183,6 @@
                                 </div>
 
 
-                                {{--   Account Details Start    --}}
                                 <div class="tab-pane fade" id="account-detail" role="tabpanel" aria-labelledby="account-detail-tab">
                                     <div class="card">
                                         <div class="card-header">
@@ -189,45 +190,49 @@
                                         </div>
                                         <div class="card-body">
 
+
                                             <form method="post" action="{{ route('user.profile.store') }}" enctype="multipart/form-data">
                                                 @csrf
+
 
                                                 <div class="row">
                                                     <div class="form-group col-md-6">
                                                         <label>User Name <span class="required">*</span></label>
                                                         <input required="" class="form-control" name="username" type="text"
-                                                               value="{{$userData->username}}"/>
+                                                               value="{{ $userData->username }}"/>
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label>Full Name <span class="required">*</span></label>
-                                                        <input required="" class="form-control" name="name" value="{{$userData->name}}"/>
+                                                        <input required="" class="form-control" name="name" value="{{ $userData->name }}"/>
                                                     </div>
                                                     <div class="form-group col-md-12">
                                                         <label>Email <span class="required">*</span></label>
                                                         <input required="" class="form-control" name="email" type="text"
-                                                               value="{{$userData->email}}"/>
+                                                               value="{{ $userData->email }}"/>
                                                     </div>
                                                     <div class="form-group col-md-12">
                                                         <label>Phone <span class="required">*</span></label>
                                                         <input required="" class="form-control" name="phone" type="text"
-                                                               value="{{$userData->phone}}"/>
+                                                               value="{{ $userData->phone }}"/>
                                                     </div>
                                                     <div class="form-group col-md-12">
                                                         <label>Address <span class="required">*</span></label>
                                                         <input required="" class="form-control" name="address" type="text"
-                                                               value="{{$userData->address}}"/>
+                                                               value="{{ $userData->address }}"/>
                                                     </div>
                                                     <div class="form-group col-md-12">
                                                         <label>User Photo <span class="required">*</span></label>
                                                         <input class="form-control" name="photo" type="file" id="image"/>
                                                     </div>
+
                                                     <div class="form-group col-md-12">
                                                         <label> <span class="required">*</span></label>
-                                                        <img id="showImage" src="{{ (!empty($userData->photo)) ? url('upload/user_images/'.$userData->photo):url
-                                                        ('upload/no_image.jpg')}}"
-                                                             alt="User"
-                                                             class="rounded-circle p-1 bg-primary" width="110">
+                                                        <img id="showImage"
+                                                             src="{{ (!empty($userData->photo)) ? url('upload/user_images/'.$userData->photo):url('upload/no_image.jpg') }}"
+                                                             alt="User" class="rounded-circle p-1 bg-primary" width="110">
                                                     </div>
+
+
                                                     <div class="col-md-12">
                                                         <button type="submit" class="btn btn-fill-out submit font-weight-bold" name="submit"
                                                                 value="Submit">Save Change
@@ -250,7 +255,7 @@
                                         <div class="card-body">
 
 
-                                            <form method="post" action="{{ route('user.update.password') }}" >
+                                            <form method="post" action="{{ route('user.update.password') }}">
                                                 @csrf
 
                                                 @if (session('status'))
@@ -324,7 +329,11 @@
                 }
                 reader.readAsDataURL(e.target.files['0']);
             });
-        })
+        });
+
+
     </script>
+
+
 
 @endsection

@@ -133,6 +133,7 @@
                                         </div>
                                     </div>
 
+
                                     <div class="row">
                                         <div class="col-sm-3"></div>
                                         <div class="col-sm-9 text-secondary">
@@ -154,7 +155,7 @@
 <script type="text/javascript">
 $(document).ready(function (){
     $('#image').change(function (e){
-        var reader = new FileReader();
+        const reader = new FileReader();
         reader.onload = function(e){
             $('#showImage').attr('src',e.target.result);
         }

@@ -27,6 +27,8 @@
     <!-- DataTable -->
     <link href="{{ asset('adminbackend/assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
     <!-- DataTable-->
+
+    <!-- Toaster -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 
 
@@ -98,7 +100,7 @@
 
 <script>
     @if(Session::has('message'))
-    var type = "{{ Session::get('alert-type','info') }}"
+    let type = "{{ Session::get('alert-type','info') }}";
     switch(type){
         case 'info':
             toastr.info(" {{ Session::get('message') }} ");

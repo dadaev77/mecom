@@ -131,8 +131,8 @@
                             <div class="badge rounded-pill bg-light-info text-info w-100">In Progress</div>
                         </td>
                         <td>
-                            <div class="d-flex order-actions">	<a href="javascript:;" class=""><i class="bx bx-cog"></i></a>
-                                <a href="javascript:;" class="ms-4"><i class="bx bx-down-arrow-alt"></i></a>
+                            <div class="d-flex order-actions">	<a href="javascript:" class=""><i class="bx bx-cog"></i></a>
+                                <a href="javascript:" class="ms-4"><i class="bx bx-down-arrow-alt"></i></a>
                             </div>
                         </td>
                     </tr>
@@ -155,8 +155,8 @@
                             <div class="badge rounded-pill bg-light-success text-success w-100">Completed</div>
                         </td>
                         <td>
-                            <div class="d-flex order-actions">	<a href="javascript:;" class=""><i class="bx bx-cog"></i></a>
-                                <a href="javascript:;" class="ms-4"><i class="bx bx-down-arrow-alt"></i></a>
+                            <div class="d-flex order-actions">	<a href="javascript:" class=""><i class="bx bx-cog"></i></a>
+                                <a href="javascript:" class="ms-4"><i class="bx bx-down-arrow-alt"></i></a>
                             </div>
                         </td>
                     </tr>
@@ -179,8 +179,8 @@
                             <div class="badge rounded-pill bg-light-danger text-danger w-100">Cancelled</div>
                         </td>
                         <td>
-                            <div class="d-flex order-actions">	<a href="javascript:;" class=""><i class="bx bx-cog"></i></a>
-                                <a href="javascript:;" class="ms-4"><i class="bx bx-down-arrow-alt"></i></a>
+                            <div class="d-flex order-actions">	<a href="javascript:" class=""><i class="bx bx-cog"></i></a>
+                                <a href="javascript:" class="ms-4"><i class="bx bx-down-arrow-alt"></i></a>
                             </div>
                         </td>
                     </tr>
@@ -203,8 +203,8 @@
                             <div class="badge rounded-pill bg-light-success text-success w-100">Completed</div>
                         </td>
                         <td>
-                            <div class="d-flex order-actions">	<a href="javascript:;" class=""><i class="bx bx-cog"></i></a>
-                                <a href="javascript:;" class="ms-4"><i class="bx bx-down-arrow-alt"></i></a>
+                            <div class="d-flex order-actions">	<a href="javascript:" class=""><i class="bx bx-cog"></i></a>
+                                <a href="javascript:" class="ms-4"><i class="bx bx-down-arrow-alt"></i></a>
                             </div>
                         </td>
                     </tr>
@@ -227,8 +227,8 @@
                             <div class="badge rounded-pill bg-light-info text-info w-100">In Progress</div>
                         </td>
                         <td>
-                            <div class="d-flex order-actions">	<a href="javascript:;" class=""><i class="bx bx-cog"></i></a>
-                                <a href="javascript:;" class="ms-4"><i class="bx bx-down-arrow-alt"></i></a>
+                            <div class="d-flex order-actions">	<a href="javascript:" class=""><i class="bx bx-cog"></i></a>
+                                <a href="javascript:" class="ms-4"><i class="bx bx-down-arrow-alt"></i></a>
                             </div>
                         </td>
                     </tr>
@@ -251,8 +251,8 @@
                             <div class="badge rounded-pill bg-light-danger text-danger w-100">Cancelled</div>
                         </td>
                         <td>
-                            <div class="d-flex order-actions">	<a href="javascript:;" class=""><i class="bx bx-cog"></i></a>
-                                <a href="javascript:;" class="ms-4"><i class="bx bx-down-arrow-alt"></i></a>
+                            <div class="d-flex order-actions">	<a href="javascript:" class=""><i class="bx bx-cog"></i></a>
+                                <a href="javascript:" class="ms-4"><i class="bx bx-down-arrow-alt"></i></a>
                             </div>
                         </td>
                     </tr>
@@ -275,8 +275,8 @@
                             <div class="badge rounded-pill bg-light-success text-success w-100">Completed</div>
                         </td>
                         <td>
-                            <div class="d-flex order-actions">	<a href="javascript:;" class=""><i class="bx bx-cog"></i></a>
-                                <a href="javascript:;" class="ms-4"><i class="bx bx-down-arrow-alt"></i></a>
+                            <div class="d-flex order-actions">	<a href="javascript:" class=""><i class="bx bx-cog"></i></a>
+                                <a href="javascript:" class="ms-4"><i class="bx bx-down-arrow-alt"></i></a>
                             </div>
                         </td>
                     </tr>

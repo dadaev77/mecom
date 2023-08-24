@@ -9,15 +9,18 @@ use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
-    public function AdminDashboard()
-    {
+    public function AdminDashboard(){
+
         return view('admin.index');
 
-    } // End Method
+    }
+    // End AdminDashboard
+
 
     public function AdminLogin(){
         return view('admin.admin_login');
-    } // End Method
+    }
+    // End AdminLogin
 
     public function AdminDestroy(Request $request){
         Auth::guard('web')->logout();
@@ -27,14 +30,18 @@ class AdminController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/admin/login');
-    } // End Method
+    }
+    // End AdminDestroy
+
 
     public  function AdminProfile() {
 
         $id = Auth::user()->id;
         $adminData = User::find($id);
         return view('admin.admin_profile_view', compact('adminData'));
-    } // End Method
+    }
+    // End AdminProfile
+
 
     public function AdminProfileStore(Request $request) {
         $id = Auth::user()->id;
@@ -61,12 +68,14 @@ class AdminController extends Controller
 
         return redirect()->back()->with($notification);
 
-    } // End Method
+    }
+    // End AdminProfileStore
 
 
     public function AdminChangePassword(){
         return view('admin.admin_change_password');
-    }// End Method
+    }
+    // End AdminChangePassword
 
 
     public function AdminUpdatePassword(Request $request){
@@ -88,5 +97,14 @@ class AdminController extends Controller
         ]);
         return back()->with("status", " Password Changed Successfully");
 
-    } // End Mehtod
+    }
+    // End AdminUpdatePassword
+
+
+    public function InactiveVendor(){
+        $inActiveVendor = User::where('status','inactive')->where('role','vendor')->latest()->get();
+        return view('backend.vendor.inactive_vendor',compact('inActiveVendor'));
+
+    }
+    // End InactiveVendor
 }

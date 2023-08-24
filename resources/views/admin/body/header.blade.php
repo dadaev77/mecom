@@ -61,14 +61,14 @@
                             <i class='bx bx-bell'></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end">
-                            <a href="javascript:;">
+                            <a href="javascript:">
                                 <div class="msg-header">
                                     <p class="msg-header-title">Notifications</p>
                                     <p class="msg-header-clear ms-auto">Marks all as read</p>
                                 </div>
                             </a>
                             <div class="header-notifications-list">
-                                <a class="dropdown-item" href="javascript:;">
+                                <a class="dropdown-item" href="javascript:">
                                     <div class="d-flex align-items-center">
                                         <div class="notify bg-light-primary text-primary"><i class="bx bx-group"></i>
                                         </div>
@@ -79,7 +79,7 @@
                                         </div>
                                     </div>
                                 </a>
-                                <a class="dropdown-item" href="javascript:;">
+                                <a class="dropdown-item" href="javascript:">
                                     <div class="d-flex align-items-center">
                                         <div class="notify bg-light-danger text-danger"><i class="bx bx-cart-alt"></i>
                                         </div>
@@ -90,7 +90,7 @@
                                         </div>
                                     </div>
                                 </a>
-                                <a class="dropdown-item" href="javascript:;">
+                                <a class="dropdown-item" href="javascript:">
                                     <div class="d-flex align-items-center">
                                         <div class="notify bg-light-success text-success"><i class="bx bx-file"></i>
                                         </div>
@@ -101,7 +101,7 @@
                                         </div>
                                     </div>
                                 </a>
-                                <a class="dropdown-item" href="javascript:;">
+                                <a class="dropdown-item" href="javascript:">
                                     <div class="d-flex align-items-center">
                                         <div class="notify bg-light-warning text-warning"><i class="bx bx-send"></i>
                                         </div>
@@ -112,7 +112,7 @@
                                         </div>
                                     </div>
                                 </a>
-                                <a class="dropdown-item" href="javascript:;">
+                                <a class="dropdown-item" href="javascript:">
                                     <div class="d-flex align-items-center">
                                         <div class="notify bg-light-info text-info"><i class="bx bx-home-circle"></i>
                                         </div>
@@ -123,7 +123,7 @@
                                         </div>
                                     </div>
                                 </a>
-                                <a class="dropdown-item" href="javascript:;">
+                                <a class="dropdown-item" href="javascript:">
                                     <div class="d-flex align-items-center">
                                         <div class="notify bg-light-danger text-danger"><i class="bx bx-message-detail"></i>
                                         </div>
@@ -134,7 +134,7 @@
                                         </div>
                                     </div>
                                 </a>
-                                <a class="dropdown-item" href="javascript:;">
+                                <a class="dropdown-item" href="javascript:">
                                     <div class="d-flex align-items-center">
                                         <div class="notify bg-light-success text-success"><i class='bx bx-check-square'></i>
                                         </div>
@@ -145,7 +145,7 @@
                                         </div>
                                     </div>
                                 </a>
-                                <a class="dropdown-item" href="javascript:;">
+                                <a class="dropdown-item" href="javascript:">
                                     <div class="d-flex align-items-center">
                                         <div class="notify bg-light-primary text-primary"><i class='bx bx-user-pin'></i>
                                         </div>
@@ -156,7 +156,7 @@
                                         </div>
                                     </div>
                                 </a>
-                                <a class="dropdown-item" href="javascript:;">
+                                <a class="dropdown-item" href="javascript:">
                                     <div class="d-flex align-items-center">
                                         <div class="notify bg-light-warning text-warning"><i class='bx bx-door-open'></i>
                                         </div>
@@ -168,7 +168,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <a href="javascript:;">
+                            <a href="javascript:">
                                 <div class="text-center msg-footer">View All Notifications</div>
                             </a>
                         </div>
@@ -179,14 +179,14 @@
                             <i class='bx bx-comment'></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end">
-                            <a href="javascript:;">
+                            <a href="javascript:">
                                 <div class="msg-header">
                                     <p class="msg-header-title">Messages</p>
                                     <p class="msg-header-clear ms-auto">Marks all as read</p>
                                 </div>
                             </a>
                             <div class="header-message-list">
-                                <a class="dropdown-item" href="javascript:;">
+                                <a class="dropdown-item" href="javascript:">
                                     <div class="d-flex align-items-center">
                                         <div class="user-online">
                                             <img src="assets/images/avatars/avatar-1.png" class="msg-avatar" alt="user avatar">
@@ -210,7 +210,7 @@
                                         </div>
                                     </div>
                                 </a>
-                                <a class="dropdown-item" href="javascript:;">
+                                <a class="dropdown-item" href="javascript:">
                                     <div class="d-flex align-items-center">
                                         <div class="user-online">
                                             <img src="assets/images/avatars/avatar-3.png" class="msg-avatar" alt="user avatar">
@@ -349,11 +349,11 @@
                     </li>
                     <li><a class="dropdown-item" href="{{route('admin.change.password')}}"><i class="bx bx-cog"></i><span>Change Password</span></a>
                     </li>
-                    <li><a class="dropdown-item" href="javascript:;"><i class='bx bx-home-circle'></i><span>Dashboard</span></a>
+                    <li><a class="dropdown-item" href="javascript:"><i class='bx bx-home-circle'></i><span>Dashboard</span></a>
                     </li>
-                    <li><a class="dropdown-item" href="javascript:;"><i class='bx bx-dollar-circle'></i><span>Earnings</span></a>
+                    <li><a class="dropdown-item" href="javascript:"><i class='bx bx-dollar-circle'></i><span>Earnings</span></a>
                     </li>
-                    <li><a class="dropdown-item" href="javascript:;"><i class='bx bx-download'></i><span>Downloads</span></a>
+                    <li><a class="dropdown-item" href="javascript:"><i class='bx bx-download'></i><span>Downloads</span></a>
                     </li>
                     <li>
                         <div class="dropdown-divider mb-0"></div>

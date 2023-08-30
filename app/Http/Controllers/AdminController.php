@@ -7,22 +7,26 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
+
 class AdminController extends Controller
 {
-    public function AdminDashboard(){
-
+    public function AdminDashboard()
+    {
         return view('admin.index');
-
     }
+
     // End AdminDashboard
 
 
-    public function AdminLogin(){
+    public function AdminLogin()
+    {
         return view('admin.admin_login');
     }
+
     // End AdminLogin
 
-    public function AdminDestroy(Request $request){
+    public function AdminDestroy(Request $request)
+    {
         Auth::guard('web')->logout();
 
         $request->session()->invalidate();
@@ -31,19 +35,22 @@ class AdminController extends Controller
 
         return redirect('/admin/login');
     }
+
     // End AdminDestroy
 
 
-    public  function AdminProfile() {
-
+    public function AdminProfile()
+    {
         $id = Auth::user()->id;
         $adminData = User::find($id);
         return view('admin.admin_profile_view', compact('adminData'));
     }
+
     // End AdminProfile
 
 
-    public function AdminProfileStore(Request $request) {
+    public function AdminProfileStore(Request $request)
+    {
         $id = Auth::user()->id;
         $data = User::find($id);
         $data->name = $request->name;
@@ -53,8 +60,8 @@ class AdminController extends Controller
 
         if ($request->file('photo')) {
             $file = $request->file('photo');
-            @unlink(public_path('upload/admin_images/'. $data->photo));
-            $filename = date('YmdHi').$file->getClientOriginalName();
+            @unlink(public_path('upload/admin_images/' . $data->photo));
+            $filename = date('YmdHi') . $file->getClientOriginalName();
             $file->move('public_path'('upload/admin_images/'), $filename);
             $data['photo'] = $filename;
         }
@@ -67,18 +74,21 @@ class AdminController extends Controller
         );
 
         return redirect()->back()->with($notification);
-
     }
+
     // End AdminProfileStore
 
 
-    public function AdminChangePassword(){
+    public function AdminChangePassword()
+    {
         return view('admin.admin_change_password');
     }
+
     // End AdminChangePassword
 
 
-    public function AdminUpdatePassword(Request $request){
+    public function AdminUpdatePassword(Request $request)
+    {
         // Validation
         $request->validate([
             'old_password' => 'required',
@@ -96,22 +106,38 @@ class AdminController extends Controller
 
         ]);
         return back()->with("status", " Password Changed Successfully");
-
     }
+
     // End AdminUpdatePassword
 
 
-    public function InactiveVendor(){
-        $inActiveVendor = User::where('status','inactive')->where('role','vendor')->latest()->get();
-        return view('backend.vendor.inactive_vendor',compact('inActiveVendor'));
-
+    public function InactiveVendor()
+    {
+        $inActiveVendor = User::where('status', 'inactive')->where('role', 'vendor')->latest()->get();
+        return view('backend.vendor.inactive_vendor', compact('inActiveVendor'));
     }
+
     // End InactiveVendor
 
 
-    public function ActiveVendor() {
-        $ActiveVendor = User::where('status','active')->where('role', 'vendor')->latest()->get();
+    public function ActiveVendor()
+    {
+        $ActiveVendor = User::where('status', 'active')->where('role', 'vendor')->latest()->get();
         return view('backend.vendor.active_vendor', compact('ActiveVendor'));
     }
+
     // End ActiveVendor
+
+
+    public function InactiveVendorDetails($id)
+    {
+        $inactiveVendorDetails = User::findOrFail($id);
+        return view('backend.vendor.inactive_vendor_details', compact('inactiveVendorDetails'));
+    }
+
+    // End InactiveVendorDetails
+
+
+
+
 }

@@ -1,7 +1,24 @@
 @extends('vendor.vendor_dashboard')
 @section('vendor')
 
+    @php
+
+        $id = Auth::user()->id;
+        $vendorId = App\Models\User::find($id);
+        $status = $vendorId->status;
+
+    @endphp
+
     <div class="page-content">
+
+        @if($status === 'active')
+            <h4>Vendor Account is <span class="text-success">Active</span></h4>
+        @else
+            <h4>Vendor Account is <span class="text-danger">InActive</span></h4>
+            <p class="text-danger"> <b>Please wait will check and approve your account </b></p>
+
+
+        @endif
 
         <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
             <div class="col">
@@ -14,7 +31,8 @@
                             </div>
                         </div>
                         <div class="progress my-3 bg-light-transparent" style="height:3px;">
-                            <div class="progress-bar bg-white" role="progressbar" style="width: 55%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-white" role="progressbar" style="width: 55%" aria-valuenow="25" aria-valuemin="0"
+                                 aria-valuemax="100"></div>
                         </div>
                         <div class="d-flex align-items-center text-white">
                             <p class="mb-0">Total Orders</p>
@@ -33,7 +51,8 @@
                             </div>
                         </div>
                         <div class="progress my-3 bg-light-transparent" style="height:3px;">
-                            <div class="progress-bar bg-white" role="progressbar" style="width: 55%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-white" role="progressbar" style="width: 55%" aria-valuenow="25" aria-valuemin="0"
+                                 aria-valuemax="100"></div>
                         </div>
                         <div class="d-flex align-items-center text-white">
                             <p class="mb-0">Total Revenue</p>
@@ -52,7 +71,8 @@
                             </div>
                         </div>
                         <div class="progress my-3 bg-light-transparent" style="height:3px;">
-                            <div class="progress-bar bg-white" role="progressbar" style="width: 55%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-white" role="progressbar" style="width: 55%" aria-valuenow="25" aria-valuemin="0"
+                                 aria-valuemax="100"></div>
                         </div>
                         <div class="d-flex align-items-center text-white">
                             <p class="mb-0">Visitors</p>
@@ -71,7 +91,8 @@
                             </div>
                         </div>
                         <div class="progress my-3 bg-light-transparent" style="height:3px;">
-                            <div class="progress-bar bg-white" role="progressbar" style="width: 55%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-white" role="progressbar" style="width: 55%" aria-valuenow="25" aria-valuemin="0"
+                                 aria-valuemax="100"></div>
                         </div>
                         <div class="d-flex align-items-center text-white">
                             <p class="mb-0">Messages</p>
@@ -81,11 +102,6 @@
                 </div>
             </div>
         </div><!--end row-->
-
-
-
-
-
 
 
         <div class="card radius-10">
@@ -131,7 +147,7 @@
                                 <div class="badge rounded-pill bg-light-info text-info w-100">In Progress</div>
                             </td>
                             <td>
-                                <div class="d-flex order-actions">	<a href="javascript:;" class=""><i class="bx bx-cog"></i></a>
+                                <div class="d-flex order-actions"><a href="javascript:;" class=""><i class="bx bx-cog"></i></a>
                                     <a href="javascript:;" class="ms-4"><i class="bx bx-down-arrow-alt"></i></a>
                                 </div>
                             </td>
@@ -155,7 +171,7 @@
                                 <div class="badge rounded-pill bg-light-success text-success w-100">Completed</div>
                             </td>
                             <td>
-                                <div class="d-flex order-actions">	<a href="javascript:;" class=""><i class="bx bx-cog"></i></a>
+                                <div class="d-flex order-actions"><a href="javascript:;" class=""><i class="bx bx-cog"></i></a>
                                     <a href="javascript:;" class="ms-4"><i class="bx bx-down-arrow-alt"></i></a>
                                 </div>
                             </td>
@@ -179,7 +195,7 @@
                                 <div class="badge rounded-pill bg-light-danger text-danger w-100">Cancelled</div>
                             </td>
                             <td>
-                                <div class="d-flex order-actions">	<a href="javascript:;" class=""><i class="bx bx-cog"></i></a>
+                                <div class="d-flex order-actions"><a href="javascript:;" class=""><i class="bx bx-cog"></i></a>
                                     <a href="javascript:;" class="ms-4"><i class="bx bx-down-arrow-alt"></i></a>
                                 </div>
                             </td>
@@ -203,7 +219,7 @@
                                 <div class="badge rounded-pill bg-light-success text-success w-100">Completed</div>
                             </td>
                             <td>
-                                <div class="d-flex order-actions">	<a href="javascript:;" class=""><i class="bx bx-cog"></i></a>
+                                <div class="d-flex order-actions"><a href="javascript:;" class=""><i class="bx bx-cog"></i></a>
                                     <a href="javascript:;" class="ms-4"><i class="bx bx-down-arrow-alt"></i></a>
                                 </div>
                             </td>
@@ -227,7 +243,7 @@
                                 <div class="badge rounded-pill bg-light-info text-info w-100">In Progress</div>
                             </td>
                             <td>
-                                <div class="d-flex order-actions">	<a href="javascript:;" class=""><i class="bx bx-cog"></i></a>
+                                <div class="d-flex order-actions"><a href="javascript:;" class=""><i class="bx bx-cog"></i></a>
                                     <a href="javascript:;" class="ms-4"><i class="bx bx-down-arrow-alt"></i></a>
                                 </div>
                             </td>
@@ -251,7 +267,7 @@
                                 <div class="badge rounded-pill bg-light-danger text-danger w-100">Cancelled</div>
                             </td>
                             <td>
-                                <div class="d-flex order-actions">	<a href="javascript:;" class=""><i class="bx bx-cog"></i></a>
+                                <div class="d-flex order-actions"><a href="javascript:;" class=""><i class="bx bx-cog"></i></a>
                                     <a href="javascript:;" class="ms-4"><i class="bx bx-down-arrow-alt"></i></a>
                                 </div>
                             </td>
@@ -275,7 +291,7 @@
                                 <div class="badge rounded-pill bg-light-success text-success w-100">Completed</div>
                             </td>
                             <td>
-                                <div class="d-flex order-actions">	<a href="javascript:;" class=""><i class="bx bx-cog"></i></a>
+                                <div class="d-flex order-actions"><a href="javascript:;" class=""><i class="bx bx-cog"></i></a>
                                     <a href="javascript:;" class="ms-4"><i class="bx bx-down-arrow-alt"></i></a>
                                 </div>
                             </td>

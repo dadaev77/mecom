@@ -22,7 +22,7 @@
         </li>
 
         <li>
-            <a href="javascript:;" class="has-arrow">
+            <a href="javascript:" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-home-circle'></i>
                 </div>
                 <div class="menu-title">Brand</div>
@@ -36,7 +36,7 @@
             </ul>
         </li>
         <li>
-            <a href="javascript:;" class="has-arrow">
+            <a href="javascript:" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-category"></i>
                 </div>
                 <div class="menu-title">Category</div>
@@ -50,7 +50,7 @@
         </li>
 
         <li>
-            <a href="javascript:;" class="has-arrow">
+            <a href="javascript:" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-category"></i>
                 </div>
                 <div class="menu-title">SubCategory</div>
@@ -62,10 +62,27 @@
                 </li>
             </ul>
         </li>
+
+
+        <li>
+            <a href="javascript:" class="has-arrow">
+                <div class="parent-icon"><i class="bx bx-category"></i>
+                </div>
+                <div class="menu-title">Product Manage</div>
+            </a>
+            <ul>
+                <li> <a href="{{route('all.subcategory')}}"><i class="bx bx-right-arrow-alt"></i>All Product</a>
+                </li>
+                <li> <a href="{{ route('add.subcategory') }}"><i class="bx bx-right-arrow-alt"></i>Add Product</a>
+                </li>
+            </ul>
+        </li>
+
+
         <li class="menu-label">UI Elements</li>
 
         <li>
-            <a href="javascript:;" class="has-arrow">
+            <a href="javascript:" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-cart'></i>
                 </div>
                 <div class="menu-title">Vendor Manage </div>
@@ -79,7 +96,7 @@
         </li>
 
         <li>
-            <a class="has-arrow" href="javascript:;">
+            <a class="has-arrow" href="javascript:">
                 <div class="parent-icon"><i class='bx bx-bookmark-heart'></i>
                 </div>
                 <div class="menu-title">Components</div>
@@ -122,7 +139,7 @@
             </ul>
         </li>
         <li>
-            <a class="has-arrow" href="javascript:;">
+            <a class="has-arrow" href="javascript:">
                 <div class="parent-icon"><i class="bx bx-repeat"></i>
                 </div>
                 <div class="menu-title">Content</div>
@@ -137,7 +154,7 @@
             </ul>
         </li>
         <li>
-            <a class="has-arrow" href="javascript:;">
+            <a class="has-arrow" href="javascript:">
                 <div class="parent-icon"> <i class="bx bx-donate-blood"></i>
                 </div>
                 <div class="menu-title">Icons</div>

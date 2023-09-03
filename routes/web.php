@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\BrandController;
+use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VendorController;
@@ -19,7 +20,7 @@ use App\Http\Controllers\Backend\CategoryController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', static function () {
     return view('frontend.index');
 });
 
@@ -139,6 +140,15 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/active/vendor/details/{id}', 'ActiveVendorDetails')->name('active.vendor.details');
         Route::post('/inactive/vendor/approve', 'InActiveVendorApprove')->name('inactive.vendor.approve');
 
+    });
+
+
+
+    // Product All Route
+    Route::controller(ProductController::class)->group(function () {
+
+        Route::get('/all/product', 'AllProduct')->name('all.product');
+        Route::get('/add/category', 'AddCategory')->name('add.category');
 
 
     });

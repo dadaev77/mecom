@@ -5,13 +5,13 @@
 
         <!--breadcrumb-->
         <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-            <div class="breadcrumb-title pe-3">Add New Product</div>
+            <div class="breadcrumb-title pe-3">Edit Product</div>
             <div class="ps-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0 p-0">
-                        <li class="breadcrumb-item"><a href="javascript:"><i class="bx bx-home-alt"></i></a>
+                        <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">Add New Product</li>
+                        <li class="breadcrumb-item active" aria-current="page">Edit Product</li>
                     </ol>
                 </nav>
             </div>
@@ -21,7 +21,7 @@
 
         <div class="card">
             <div class="card-body p-4">
-                <h5 class="card-title">Add New Product</h5>
+                <h5 class="card-title">Edit Product</h5>
                 <hr/>
 
                 <form id="myForm" method="post" action="{{ route('store.product') }}" enctype="multipart/form-data">
@@ -36,53 +36,39 @@
                                     <div class="form-group mb-3">
                                         <label for="inputProductTitle" class="form-label">Product Name</label>
                                         <input type="text" name="product_name" class="form-control" id="inputProductTitle"
-                                               placeholder="Enter product title">
+                                               value="{{ $products->product_name }}">
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="inputProductTitle" class="form-label">Product Tags</label>
                                         <input type="text" name="product_tags" class="form-control visually-hidden" data-role="tagsinput"
-                                               value="new product,top product">
+                                               value="{{ $products->product_tags }}">
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="inputProductTitle" class="form-label">Product Size</label>
                                         <input type="text" name="product_size" class="form-control visually-hidden" data-role="tagsinput"
-                                               value="Small,Midium,Large ">
+                                               value="{{ $products->product_size }} ">
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="inputProductTitle" class="form-label">Product Color</label>
                                         <input type="text" name="product_color" class="form-control visually-hidden" data-role="tagsinput"
-                                               value="Red,Blue,Black">
+                                               value="{{ $products->product_color }}">
                                     </div>
 
 
                                     <div class="form-group mb-3">
                                         <label for="inputProductDescription" class="form-label">Short Description</label>
-                                        <textarea name="short_descp" class="form-control" id="inputProductDescription" rows="3"></textarea>
+                                        <textarea name="short_descp" class="form-control" id="inputProductDescription" rows="3">
+        {{ $products->short_descp }}
+				</textarea>
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="inputProductDescription" class="form-label">Long Description</label>
-                                        <textarea id="mytextarea" name="long_descp">Hello, World!</textarea>
-                                    </div>
-
-
-                                    <div class="form-group mb-3">
-                                        <label for="inputProductTitle" class="form-label">Main Thambnail</label>
-                                        <input name="product_thambnail" class="form-control" type="file" id="formFile" onChange="mainThamUrl(this)">
-
-                                        <img src="" id="mainThmb"/>
-                                    </div>
-
-
-                                    <div class="form-group mb-3">
-                                        <label for="inputProductTitle" class="form-label">Multiple Image</label>
-                                        <input class="form-control" name="multi_img[]" type="file" id="multiImg" multiple="">
-
-                                        <div class="row" id="preview_img"></div>
-
+                                        <textarea id="mytextarea" name="long_descp">
+				 {!! $products->long_descp !!}</textarea>
                                     </div>
 
 
@@ -94,20 +80,23 @@
 
                                         <div class="form-group col-md-6">
                                             <label for="inputPrice" class="form-label">Product Price</label>
-                                            <input type="text" name="selling_price" class="form-control" id="inputPrice" placeholder="00.00">
+                                            <input type="text" name="selling_price" class="form-control" id="inputPrice"
+                                                   value="{{ $products->selling_price }}">
                                         </div>
                                         <div class="col-md-6">
                                             <label for="inputCompareatprice" class="form-label">Discount Price </label>
                                             <input type="text" name="discount_price" class="form-control" id="inputCompareatprice"
-                                                   placeholder="00.00">
+                                                   value="{{ $products->discount_price }}">
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="inputCostPerPrice" class="form-label">Product Code</label>
-                                            <input type="text" name="product_code" class="form-control" id="inputCostPerPrice" placeholder="00.00">
+                                            <input type="text" name="product_code" class="form-control" id="inputCostPerPrice"
+                                                   value="{{ $products->product_code }}">
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="inputStarPoints" class="form-label">Product Quantity</label>
-                                            <input type="text" name="product_qty" class="form-control" id="inputStarPoints" placeholder="00.00">
+                                            <input type="text" name="product_qty" class="form-control" id="inputStarPoints"
+                                                   value="{{ $products->product_qty }}">
                                         </div>
 
 
@@ -135,6 +124,9 @@
                                             <label for="inputCollection" class="form-label">Product SubCategory</label>
                                             <select name="subcategory_id" class="form-select" id="inputCollection">
                                                 <option></option>
+                                                @foreach($subcategory as $subcat)
+                                                    <option value="{{ $subcat->id }}">{{ $subcat->subcategory_name }}</option>
+                                                @endforeach
 
                                             </select>
                                         </div>
@@ -296,7 +288,7 @@
         <script type="text/javascript">
             function mainThamUrl(input) {
                 if (input.files && input.files[0]) {
-                    var reader = new FileReader();
+                    let reader = new FileReader();
                     reader.onload = function (e) {
                         $('#mainThmb').attr('src', e.target.result).width(80).height(80);
                     };

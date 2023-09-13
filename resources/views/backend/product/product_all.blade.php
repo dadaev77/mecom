@@ -10,7 +10,8 @@
                     <ol class="breadcrumb mb-0 p-0">
                         <li class="breadcrumb-item"><a href="javascript:"><i class="bx bx-home-alt"></i></a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">All Product</li>
+                        <li class="breadcrumb-item active" aria-current="page">All Product <span
+                                    class="badge rounded-pill bg-danger"> {{ count($products) }} </span></li>
                     </ol>
                 </nav>
             </div>
@@ -52,7 +53,7 @@
                                 <td>{{ $item->product_qty }}</td>
 
                                 <td>
-                                    @if($item->discount_price == NULL)
+                                    @if($item->discount_price == null)
                                         <span class="badge rounded-pill bg-info">No Discount</span>
                                     @else
                                         @php
@@ -74,20 +75,20 @@
                                 </td>
 
                                 <td>
-                                    <a href="{{ route('edit.category',$item->id) }}" class="btn btn-info" title="Edit Data"> <i
+                                    <a href="{{ route('edit.product',$item->id) }}" class="btn btn-info" title="Edit Data"><i
                                                 class="fa fa-pencil"></i> </a>
                                     <a href="{{ route('delete.category',$item->id) }}" class="btn btn-danger" id="delete" title="Delete Data"><i
                                                 class="fa fa-trash"></i></a>
 
-                                    <a href="{{ route('edit.category',$item->id) }}" class="btn btn-warning" title="Details Page"> <i
+                                    <a href="{{ route('edit.category',$item->id) }}" class="btn btn-warning" title="Details Page"><i
                                                 class="fa fa-eye"></i> </a>
 
                                     @if($item->status == 1)
-                                        <a href="{{ route('edit.category',$item->id) }}" class="btn btn-primary" title="Inactive"> <i
+                                        <a href="{{ route('edit.category',$item->id) }}" class="btn btn-primary" title="Inactive"><i
                                                     class="fa-solid fa-thumbs-down"></i> </a>
                                     @else
-                                        <a href="{{ route('edit.category',$item->id) }}" class="btn btn-primary" title="Active"> <i
-                                                    class="fa-solid fa-thumbs-up"></i> </a>
+                                        <a href="{{ route('edit.category',$item->id) }}" class="btn btn-primary" title="Active"><i
+                                                    class="fa-solid fa-thumbs-up"></i></a>
                                     @endif
 
 

@@ -23,7 +23,7 @@
             <h5 class="card-title">Edit Product</h5>
             <hr/>
 
-            <form id="myForm" method="post" action="{{ route('update.product') }}"  >
+            <form id="myForm" method="post" action="{{ route('update.product') }}">
                 @csrf
 
                 <input type="hidden" name="id" value="{{ $products->id }}">
@@ -36,24 +36,27 @@
 
                                 <div class="form-group mb-3">
                                     <label for="inputProductTitle" class="form-label">Product Name</label>
-                                    <input type="text" name="product_name" class="form-control" id="inputProductTitle" value="{{ $products->product_name }}">
+                                    <input type="text" name="product_name" class="form-control" id="inputProductTitle"
+                                           value="{{ $products->product_name }}">
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="inputProductTitle" class="form-label">Product Tags</label>
-                                    <input type="text" name="product_tags" class="form-control visually-hidden" data-role="tagsinput" value="{{ $products->product_tags }}">
+                                    <input type="text" name="product_tags" class="form-control visually-hidden" data-role="tagsinput"
+                                           value="{{ $products->product_tags }}">
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="inputProductTitle" class="form-label">Product Size</label>
-                                    <input type="text" name="product_size" class="form-control visually-hidden" data-role="tagsinput" value="{{ $products->product_size }} ">
+                                    <input type="text" name="product_size" class="form-control visually-hidden" data-role="tagsinput"
+                                           value="{{ $products->product_size }} ">
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="inputProductTitle" class="form-label">Product Color</label>
-                                    <input type="text" name="product_color" class="form-control visually-hidden" data-role="tagsinput" value="{{ $products->product_color }}">
+                                    <input type="text" name="product_color" class="form-control visually-hidden" data-role="tagsinput"
+                                           value="{{ $products->product_color }}">
                                 </div>
-
 
 
                                 <div class="form-group mb-3">
@@ -70,10 +73,6 @@
                                 </div>
 
 
-
-
-
-
                             </div>
                         </div>
                         <div class="col-lg-4">
@@ -82,19 +81,23 @@
 
                                     <div class="form-group col-md-6">
                                         <label for="inputPrice" class="form-label">Product Price</label>
-                                        <input type="text" name="selling_price" class="form-control" id="inputPrice" value="{{ $products->selling_price }}">
+                                        <input type="text" name="selling_price" class="form-control" id="inputPrice"
+                                               value="{{ $products->selling_price }}">
                                     </div>
                                     <div class="col-md-6">
                                         <label for="inputCompareatprice" class="form-label">Discount Price </label>
-                                        <input type="text" name="discount_price" class="form-control" id="inputCompareatprice" value="{{ $products->discount_price }}">
+                                        <input type="text" name="discount_price" class="form-control" id="inputCompareatprice"
+                                               value="{{ $products->discount_price }}">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="inputCostPerPrice" class="form-label">Product Code</label>
-                                        <input type="text" name="product_code" class="form-control" id="inputCostPerPrice" value="{{ $products->product_code }}">
+                                        <input type="text" name="product_code" class="form-control" id="inputCostPerPrice"
+                                               value="{{ $products->product_code }}">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="inputStarPoints" class="form-label">Product Quantity</label>
-                                        <input type="text" name="product_qty" class="form-control" id="inputStarPoints" value="{{ $products->product_qty }}">
+                                        <input type="text" name="product_qty" class="form-control" id="inputStarPoints"
+                                               value="{{ $products->product_qty }}">
                                     </div>
 
 
@@ -147,24 +150,25 @@
 
                                             <div class="col-md-6">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" name="hot_deals" type="checkbox" value="1" id="flexCheckDefault" {{ $products->hot_deals == 1 ? 'checked' : '' }} >
+                                                    <input class="form-check-input" name="hot_deals" type="checkbox" value="1"
+                                                           id="flexCheckDefault" {{ $products->hot_deals == 1 ? 'checked' : '' }} >
                                                     <label class="form-check-label" for="flexCheckDefault"> Hot Deals</label>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" name="featured" type="checkbox" value="1" id="flexCheckDefault" {{ $products->featured == 1 ? 'checked' : '' }}>
+                                                    <input class="form-check-input" name="featured" type="checkbox" value="1"
+                                                           id="flexCheckDefault" {{ $products->featured == 1 ? 'checked' : '' }}>
                                                     <label class="form-check-label" for="flexCheckDefault">Featured</label>
                                                 </div>
                                             </div>
 
 
-
-
                                             <div class="col-md-6">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" name="special_offer" type="checkbox" value="1" id="flexCheckDefault" {{ $products->special_offer == 1 ? 'checked' : '' }}>
+                                                    <input class="form-check-input" name="special_offer" type="checkbox" value="1"
+                                                           id="flexCheckDefault" {{ $products->special_offer == 1 ? 'checked' : '' }}>
                                                     <label class="form-check-label" for="flexCheckDefault">Special Offer</label>
                                                 </div>
                                             </div>
@@ -172,11 +176,11 @@
 
                                             <div class="col-md-6">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" name="special_deals" type="checkbox" value="1" id="flexCheckDefault" {{ $products->special_deals == 1 ? 'checked' : '' }}>
+                                                    <input class="form-check-input" name="special_deals" type="checkbox" value="1"
+                                                           id="flexCheckDefault" {{ $products->special_deals == 1 ? 'checked' : '' }}>
                                                     <label class="form-check-label" for="flexCheckDefault">Special Deals</label>
                                                 </div>
                                             </div>
-
 
 
                                         </div> <!-- // end row  -->
@@ -188,7 +192,7 @@
 
                                     <div class="col-12">
                                         <div class="d-grid">
-                                            <input type="submit" class="btn btn-primary px-4" value="Save Changes" />
+                                            <input type="submit" class="btn btn-primary px-4" value="Save Changes"/>
 
                                         </div>
                                     </div>
@@ -206,74 +210,114 @@
 
 
 
+    <!-- /// Main Image Thambnail Update /// -->
+    <div class="page-content">
+        <h6 class="mb-0 text-uppercase">Update Main Image Thambnail</h6>
+        <hr>
+        <div class="card">
+            <form method="post" action="{{ route('update.product.thambnail') }}" enctype="multipart/form-data">
+                @csrf
+
+                <input type="hidden" name="id" value="{{ $products->id}}">
+                <input type="hidden" name="old_img" value="{{ $products->product_thambnail }}">
+
+
+        <div class="card-body">
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Chose Thambnail Image </label>
+                <input name="product_thambnail" class="form-control" type="file" id="formFile">
+            </div>
+        </div>
+
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label"></label>
+                        <img src="{{ asset($products->product_thambnail) }}" style="width: 200px; height: 200px">
+                    </div>
+
+                    <input type="submit" class="btn btn-primary px-4" value="Save Changes"/>
+
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+
+
+    <!-- /// End Main Image Thambnail Update /// -->
+
+
+
     <script type="text/javascript">
-        $(document).ready(function (){
+        $(document).ready(function () {
             $('#myForm').validate({
                 rules: {
                     product_name: {
-                        required : true,
+                        required: true,
                     },
                     short_descp: {
-                        required : true,
+                        required: true,
                     },
                     product_thambnail: {
-                        required : true,
+                        required: true,
                     },
                     multi_img: {
-                        required : true,
+                        required: true,
                     },
                     selling_price: {
-                        required : true,
+                        required: true,
                     },
                     product_code: {
-                        required : true,
+                        required: true,
                     },
                     product_qty: {
-                        required : true,
+                        required: true,
                     },
                     brand_id: {
-                        required : true,
+                        required: true,
                     },
                     category_id: {
-                        required : true,
+                        required: true,
                     },
                     subcategory_id: {
-                        required : true,
+                        required: true,
                     },
                 },
-                messages :{
+                messages: {
                     product_name: {
-                        required : 'Please Enter Product Name',
+                        required: 'Please Enter Product Name',
                     },
                     short_descp: {
-                        required : 'Please Enter Short Description',
+                        required: 'Please Enter Short Description',
                     },
                     product_thambnail: {
-                        required : 'Please Select Product Thambnail Image',
+                        required: 'Please Select Product Thambnail Image',
                     },
                     multi_img: {
-                        required : 'Please Select Product Multi Image',
+                        required: 'Please Select Product Multi Image',
                     },
                     selling_price: {
-                        required : 'Please Enter Selling Price',
+                        required: 'Please Enter Selling Price',
                     },
                     product_code: {
-                        required : 'Please Enter Product Code',
+                        required: 'Please Enter Product Code',
                     },
                     product_qty: {
-                        required : 'Please Enter Product Quantity',
+                        required: 'Please Enter Product Quantity',
                     },
 
                 },
-                errorElement : 'span',
-                errorPlacement: function (error,element) {
+                errorElement: 'span',
+                errorPlacement: function (error, element) {
                     error.addClass('invalid-feedback');
                     element.closest('.form-group').append(error);
                 },
-                highlight : function(element, errorClass, validClass){
+                highlight: function (element, errorClass, validClass) {
                     $(element).addClass('is-invalid');
                 },
-                unhighlight : function(element, errorClass, validClass){
+                unhighlight: function (element, errorClass, validClass) {
                     $(element).removeClass('is-invalid');
                 },
             });
@@ -284,11 +328,11 @@
 
 
     <script type="text/javascript">
-        function mainThamUrl(input){
+        function mainThamUrl(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
-                reader.onload = function(e){
-                    $('#mainThmb').attr('src',e.target.result).width(80).height(80);
+                reader.onload = function (e) {
+                    $('#mainThmb').attr('src', e.target.result).width(80).height(80);
                 };
                 reader.readAsDataURL(input.files[0]);
             }
@@ -298,18 +342,18 @@
 
     <script>
 
-        $(document).ready(function(){
-            $('#multiImg').on('change', function(){ //on file input change
+        $(document).ready(function () {
+            $('#multiImg').on('change', function () { //on file input change
                 if (window.File && window.FileReader && window.FileList && window.Blob) //check File API supported browser
                 {
                     var data = $(this)[0].files; //this file data
 
-                    $.each(data, function(index, file){ //loop though each file
-                        if(/(\.|\/)(gif|jpe?g|png|webp)$/i.test(file.type)){ //check supported file type
+                    $.each(data, function (index, file) { //loop though each file
+                        if (/(\.|\/)(gif|jpe?g|png|webp)$/i.test(file.type)) { //check supported file type
                             var fRead = new FileReader(); //new filereader
-                            fRead.onload = (function(file){ //trigger function on successful read
-                                return function(e) {
-                                    var img = $('<img/>').addClass('thumb').attr('src', e.target.result) .width(100)
+                            fRead.onload = (function (file) { //trigger function on successful read
+                                return function (e) {
+                                    var img = $('<img/>').addClass('thumb').attr('src', e.target.result).width(100)
                                         .height(80); //create image element
                                     $('#preview_img').append(img); //append image to output element
                                 };
@@ -318,7 +362,7 @@
                         }
                     });
 
-                }else{
+                } else {
                     alert("Your browser doesn't support File API!"); //if File API is absent
                 }
             });
@@ -330,19 +374,19 @@
 
     <script type="text/javascript">
 
-        $(document).ready(function(){
-            $('select[name="category_id"]').on('change', function(){
+        $(document).ready(function () {
+            $('select[name="category_id"]').on('change', function () {
                 var category_id = $(this).val();
                 if (category_id) {
                     $.ajax({
-                        url: "{{ url('/subcategory/ajax') }}/"+category_id,
+                        url: "{{ url('/subcategory/ajax') }}/" + category_id,
                         type: "GET",
-                        dataType:"json",
-                        success:function(data){
+                        dataType: "json",
+                        success: function (data) {
                             $('select[name="subcategory_id"]').html('');
-                            var d =$('select[name="subcategory_id"]').empty();
-                            $.each(data, function(key, value){
-                                $('select[name="subcategory_id"]').append('<option value="'+ value.id + '">' + value.subcategory_name + '</option>');
+                            var d = $('select[name="subcategory_id"]').empty();
+                            $.each(data, function (key, value) {
+                                $('select[name="subcategory_id"]').append('<option value="' + value.id + '">' + value.subcategory_name + '</option>');
                             });
                         },
 

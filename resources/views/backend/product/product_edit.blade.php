@@ -266,7 +266,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <form method="post" action="{{ route('update.product.thambnail') }}" enctype="multipart/form-data">
+                <form method="post" action="{{ route('update.product.multiimage') }}" enctype="multipart/form-data">
                     @csrf
 
                     @foreach($multiImgs as $key => $img)

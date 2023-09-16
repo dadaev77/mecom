@@ -155,6 +155,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::post('/update/product' , 'UpdateProduct')->name('update.product');
         Route::post('/update/product/thambnail' , 'UpdateProductThambnail')->name('update.product.thambnail');
         Route::post('/update/product/multiimage' , 'UpdateProductMultiimage')->name('update.product.multiimage');
+<<<<<<< HEAD
+=======
+        Route::get('/product/multiimg/delete/{id}' , 'MulitImageDelelte')->name('product.multiimg.delete');
+>>>>>>> 614e3b7 ([26] 020 Multiple image Delete(removing an image from the product table in a template product_edit))
 
 
 

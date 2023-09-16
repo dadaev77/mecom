@@ -9,7 +9,7 @@
             <div class="ps-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0 p-0">
-                        <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+                        <li class="breadcrumb-item"><a href="javascript:"><i class="bx bx-home-alt"></i></a>
                         </li>
                         <li class="breadcrumb-item active" aria-current="page">Edit Product</li>
                     </ol>
@@ -382,7 +382,7 @@
     <script type="text/javascript">
         function mainThamUrl(input) {
             if (input.files && input.files[0]) {
-                var reader = new FileReader();
+                let reader = new FileReader();
                 reader.onload = function (e) {
                     $('#mainThmb').attr('src', e.target.result).width(80).height(80);
                 };
@@ -398,11 +398,11 @@
             $('#multiImg').on('change', function () { //on file input change
                 if (window.File && window.FileReader && window.FileList && window.Blob) //check File API supported browser
                 {
-                    var data = $(this)[0].files; //this file data
+                    let data = $(this)[0].files; //this file data
 
                     $.each(data, function (index, file) { //loop though each file
                         if (/(\.|\/)(gif|jpe?g|png|webp)$/i.test(file.type)) { //check supported file type
-                            var fRead = new FileReader(); //new filereader
+                            let fRead = new FileReader(); //new filereader
                             fRead.onload = (function (file) { //trigger function on successful read
                                 return function (e) {
                                     var img = $('<img/>').addClass('thumb').attr('src', e.target.result).width(100)
@@ -428,7 +428,7 @@
 
         $(document).ready(function () {
             $('select[name="category_id"]').on('change', function () {
-                var category_id = $(this).val();
+                let category_id = $(this).val();
                 if (category_id) {
                     $.ajax({
                         url: "{{ url('/subcategory/ajax') }}/" + category_id,
@@ -436,7 +436,7 @@
                         dataType: "json",
                         success: function (data) {
                             $('select[name="subcategory_id"]').html('');
-                            var d = $('select[name="subcategory_id"]').empty();
+                            let d = $('select[name="subcategory_id"]').empty();
                             $.each(data, function (key, value) {
                                 $('select[name="subcategory_id"]').append('<option value="' + value.id + '">' + value.subcategory_name + '</option>');
                             });

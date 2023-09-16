@@ -97,13 +97,15 @@ class ProductController extends Controller
     // End StoreProduct
 
 
-    public function EditProduct($id){
-        $activeVendor = User::where('status','active')->where('role','vendor')->latest()->get();
+    public function EditProduct($id)
+    {
+        $multiImgs = MultiImg::where('product_id', $id)->get();
+        $activeVendor = User::where('status', 'active')->where('role', 'vendor')->latest()->get();
         $brands = Brand::latest()->get();
         $categories = Category::latest()->get();
         $subcategory = SubCategory::latest()->get();
         $products = Product::findOrFail($id);
-        return view('backend.product.product_edit',compact('brands','categories','activeVendor','products','subcategory'));
+        return view('backend.product.product_edit', compact('brands', 'categories', 'activeVendor', 'products', 'subcategory', 'multiImgs'));
     }
 
 

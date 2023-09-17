@@ -157,6 +157,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::post('/update/product/multiimage' , 'UpdateProductMultiimage')->name('update.product.multiimage');
         Route::get('/product/inactive/{id}' , 'ProductInactive')->name('product.inactive');
         Route::get('/product/active/{id}' , 'ProductActive')->name('product.active');
+        Route::get('/delete/product/{id}' , 'ProductDelete')->name('delete.product');
 
 
 

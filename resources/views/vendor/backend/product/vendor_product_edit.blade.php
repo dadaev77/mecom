@@ -206,7 +206,7 @@
         <h6 class="mb-0 text-uppercase">Update Main Image Thambnail </h6>
         <hr>
         <div class="card">
-            <form method="post" action="{{ route('update.product.thambnail') }}" enctype="multipart/form-data" >
+            <form method="post" action="{{ route('vendor.update.product.thambnail') }}" enctype="multipart/form-data" >
                 @csrf
 
                 <input type="hidden" name="id" value="{{ $products->id }}">
@@ -254,7 +254,7 @@
                     </thead>
                     <tbody>
 
-                    <form method="post" action="{{ route('update.product.multiimage') }}" enctype="multipart/form-data" >
+                    <form method="post" action="{{ route('vendor.update.product.multiimage') }}" enctype="multipart/form-data" >
                         @csrf
 
                         @foreach($multiImgs as $key => $img)
@@ -264,7 +264,7 @@
                                 <td> <input type="file" class="form-group" name="multi_img[{{ $img->id }}]"> </td>
                                 <td>
                                     <input type="submit" class="btn btn-primary px-4" value="Update Image " />
-                                    <a href="#" class="btn btn-danger" id="delete" > Delete </a>
+                                    <a href="{{ route('vendor.product.multiimg.delete',$img->id) }}" class="btn btn-danger" id="delete" > Delete </a>
                                 </td>
                             </tr>
                         @endforeach
@@ -408,7 +408,7 @@
 
         $(document).ready(function(){
             $('select[name="category_id"]').on('change', function(){
-                var category_id = $(this).val();
+                let category_id = $(this).val();
                 if (category_id) {
                     $.ajax({
                         url: "{{ url('/subcategory/ajax') }}/"+category_id,
@@ -416,7 +416,7 @@
                         dataType:"json",
                         success:function(data){
                             $('select[name="subcategory_id"]').html('');
-                            var d =$('select[name="subcategory_id"]').empty();
+                            let d = $('select[name="subcategory_id"]').empty();
                             $.each(data, function(key, value){
                                 $('select[name="subcategory_id"]').append('<option value="'+ value.id + '">' + value.subcategory_name + '</option>');
                             });

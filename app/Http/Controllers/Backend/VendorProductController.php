@@ -22,8 +22,8 @@ class VendorProductController extends Controller
         $id = Auth::user()->id;
         $products = Product::where('vendor_id',$id)->latest()->get();
         return view('vendor.backend.product.vendor_product_all',compact('products'));
-    }
-    // End VendorAllProduct
+    } // End VendorAllProduct
+
 
 
     public function VendorAddProduct(){
@@ -32,16 +32,16 @@ class VendorProductController extends Controller
         $categories = Category::latest()->get();
         return view('vendor.backend.product.vendor_product_add',compact('brands','categories'));
 
-    }
-    // End VendorAddProduct
+    } // End VendorAddProduct
+
 
 
     public function VendorGetSubCategory($category_id){
         $subcat = SubCategory::where('category_id',$category_id)->orderBy('subcategory_name','ASC')->get();
         return json_encode($subcat);
 
-    }
-    // End VendorGetSubCategory
+    } // End VendorGetSubCategory
+
 
 
     public function VendorStoreProduct(Request $request){
@@ -102,8 +102,8 @@ class VendorProductController extends Controller
         return redirect()->route('vendor.all.product')->with($notification);
 
 
-    }
-    // End StoreProduct
+    } // End StoreProduct
+
 
 
     public function VendorEditProduct($id){
@@ -115,8 +115,8 @@ class VendorProductController extends Controller
         $subcategory = SubCategory::latest()->get();
         $products = Product::findOrFail($id);
         return view('vendor.backend.product.vendor_product_edit',compact('brands','categories', 'products','subcategory','multiImgs'));
-    }
-    // End VendorEditProduct
+    } // End VendorEditProduct
+
 
 
 
@@ -161,7 +161,7 @@ class VendorProductController extends Controller
 
         return redirect()->route('vendor.all.product')->with($notification);
 
-    }// End VendorUpdateProduct
+    } // End VendorUpdateProduct
 
 
     public function VendorUpdateProductThabnail(Request $request){
@@ -192,10 +192,10 @@ class VendorProductController extends Controller
         return redirect()->back()->with($notification);
 
 
-    }// End Method
+    } // End VendorUpdateProductThabnail
 
 
-    //Vendor Multi Image Update
+    //// ↓ Vendor Multi Image Update ↓////
     public function VendorUpdateProductMultiimage(Request $request){
 
         $imgs = $request->multi_img;
@@ -222,7 +222,7 @@ class VendorProductController extends Controller
 
         return redirect()->back()->with($notification);
 
-    }// End VendorUpdateProductMultiImage
+    } // End VendorUpdateProductMultiImage
 
 
     public function VendorMultiimgDelete($id){
@@ -238,8 +238,59 @@ class VendorProductController extends Controller
 
         return redirect()->back()->with($notification);
 
-    }
-    // End VendorMultiimgDelete
+    } // End VendorMultiimgDelete
+
+
+
+    public function VendorProductInactive($id)
+    {
+        Product::findOrFail($id)->update(['status' => 0]);
+
+        $notification = array(
+            'message' => 'Product Inactive',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    } // End VendorProductInactive
+
+
+
+    public function VendorProductActive($id)
+    {
+        Product::findOrFail($id)->update(['status' => 1]);
+
+        $notification = array(
+            'message' => 'Product Active',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    } // End VendorProductActive
+
+
+
+    public function VendorProductDelete($id)
+    {
+        $product = Product::findOrFail($id);
+        unlink($product->product_thambnail);
+        Product::findOrFail($id)->delete();
+
+        $images = MultiImg::where('product_id', $id)->get();
+        foreach ($images as $img){
+            unlink($img->photo_name);
+            MultiImg::where('product_id', $id)->delete();
+
+        }
+
+        $notification = array(
+            'message' => 'Vendor Product Delete Successful',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+    } // End VendorProductDelete
+
 
 
 

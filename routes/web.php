@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Controllers\Backend\VendorProductController;
+use App\Http\Controllers\Backend\SliderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,7 +81,7 @@ Route::middleware(['auth', 'role:vendor'])->group(function () {
     Route::post('/vendor/update/password', [VendorController::class, 'VendorUpdatePassword'])->name('vendor.update.password');
 
 
-    // Vendor Add Product All Route
+    //// Vendor Add Product All Route
     Route::controller(VendorProductController::class)->group(function(){
         Route::get('/vendor/all/product' , 'VendorAllProduct')->name('vendor.all.product');
         Route::get('/vendor/add/product' , 'VendorAddProduct')->name('vendor.add.product');
@@ -172,6 +173,21 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/product/active/{id}', 'ProductActive')->name('product.active');
         Route::get('/delete/product/{id}', 'ProductDelete')->name('delete.product');
     });
+
+
+    // Slider All Route
+    Route::controller(SliderController::class)->group(function () {
+        Route::get('/all/slider' , 'AllSlider')->name('all.slider');
+        Route::get('/add/category', 'AddCategory')->name('add.category');
+        Route::post('/store/category', 'StoreCategory')->name('store.category');
+        Route::get('/edit/category/{id}', 'EditCategory')->name('edit.category');
+        Route::post('/update/category', 'UpdateCategory')->name('update.category');
+        Route::get('/delete/category/{id}', 'DeleteCategory')->name('delete.category');
+    });
+
+
+
+
 });
-//// End middleware
+//// Admin End middleware
 

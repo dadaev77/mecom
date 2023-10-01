@@ -1,4 +1,8 @@
 <!-- Header  -->
+@php
+    $products = App\Models\Product::where('status',1)->orderBy('id','ASC')->limit(10)->get();
+@endphp
+
 <header class="header-area header-style-1 header-height-2">
     <div class="mobile-promotion">
         <span>Grand opening, <strong>up to 15%</strong> off all items. Only <strong>3 days</strong> left</span>

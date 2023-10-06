@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\BannerController;
+use App\Http\Controllers\Frontend\IndexController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\VendorController;
@@ -203,3 +204,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 });
 //// Admin End middleware
 
+
+
+/// Frontend Product Details All Route
+
+Route::get('/product/details/{id}/{slug}', [IndexController::class, 'ProductDetails']);

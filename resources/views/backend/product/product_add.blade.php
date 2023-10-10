@@ -42,7 +42,7 @@
                                     <div class="mb-3">
                                         <label for="inputProductTitle" class="form-label">Product Tags</label>
                                         <input type="text" name="product_tags" class="form-control visually-hidden" data-role="tagsinput"
-                                               value="new product,top product">
+                                               value="New product,Top product">
                                     </div>
 
                                     <div class="mb-3">
@@ -54,7 +54,7 @@
                                     <div class="mb-3">
                                         <label for="inputProductTitle" class="form-label">Product Color</label>
                                         <input type="text" name="product_color" class="form-control visually-hidden" data-role="tagsinput"
-                                               value="Red,Blue,Black">
+                                               value="Red,Blue,Black,White">
                                     </div>
 
 

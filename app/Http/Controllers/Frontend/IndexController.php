@@ -11,10 +11,25 @@ use App\Models\Brand;
 use App\Models\Product;
 use App\Models\User;
 
+
+
+
+
 class IndexController extends Controller
 {
-    public function ProductDetails($id,$slug){
+    public function Index(){
+        $skip_category_0 = Category::skip(0)->first();
+        $skip_product_0 = Product::where('status',1)->where('category_id', $skip_category_0->id)->orderBy('id','DESC')->limit(5)->get();
 
+        return view('frontend.index',compact('skip_category_0','skip_product_0'));
+
+    }
+    // End Index
+
+
+
+    public function ProductDetails($id, $slug)
+    {
         $product = Product::findOrFail($id);
 
         $color = $product->product_color;
@@ -29,9 +44,10 @@ class IndexController extends Controller
         $relatedProduct = Product::where('category_id', $cat_id)->where('id', '!=', $id)->orderBy('id', 'DESC')->limit(4)->get();
 
 
-
-        return view('frontend.product.product_details',compact('product','product_color','product_size', 'multiImage', 'relatedProduct'));
-
+        return view('frontend.product.product_details', compact('product', 'product_color', 'product_size', 'multiImage', 'relatedProduct'));
     } // End ProductDetails
+
+
+
 
 }

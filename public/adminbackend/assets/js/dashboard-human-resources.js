@@ -47,7 +47,7 @@ $(function() {
             },
             grid:{
                 show: true,
-                borderColor: 'rgba(0, 0, 0, 0.10)',
+                BorderColor: 'rgba(0, 0, 0, 0.10)',
                 borderColor: 'rgba(0, 0, 0, 0.10)',
             },
             series: [{

@@ -25,9 +25,11 @@ use App\Http\Controllers\Backend\SliderController;
 |
 */
 
-Route::get('/', static function () {
+/*Route::get('/', static function () {
     return view('frontend.index');
-});
+});*/
+
+Route::get('/', [IndexController::class, 'Index']);
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [UserController::class, 'UserDashboard'])->name('dashboard');

@@ -29,10 +29,16 @@ class IndexController extends Controller
         $skip_category_3 = Category::skip(2)->first();
         $skip_product_3 = Product::where('status',1)->where('category_id', $skip_category_3->id)->orderBy('id','DESC')->limit(5)->get();
 
-        return view('frontend.index',compact('skip_category_0','skip_product_0', 'skip_category_2', 'skip_product_2', 'skip_product_3','skip_category_3'));
+        $hot_deals = Product::where('hot_deals', 1 )->where('discount_price', '!=', null)->
+        orderBy('id', 'desc')->limit(3)->get();
 
-    }
-    // End Index
+        $special_offer = Product::where('special_offer', 1 )->orderBy('id', 'desc')->limit(3)->get();
+
+        return view('frontend.index',compact('skip_category_0','skip_product_0', 'skip_category_2', 'skip_product_2',
+            'skip_product_3','skip_category_3', 'hot_deals', 'special_offer'));
+
+    } // End Index
+
 
 
 
@@ -50,6 +56,8 @@ class IndexController extends Controller
 
         $cat_id = $product->category_id;
         $relatedProduct = Product::where('category_id', $cat_id)->where('id', '!=', $id)->orderBy('id', 'DESC')->limit(4)->get();
+        
+
 
 
         return view('frontend.product.product_details', compact('product', 'product_color', 'product_size', 'multiImage', 'relatedProduct'));

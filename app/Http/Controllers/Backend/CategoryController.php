@@ -111,7 +111,7 @@ class CategoryController extends Controller
 
         }
 
-    }
+    } // End UpdateCategory
 
 
 
@@ -127,8 +127,9 @@ class CategoryController extends Controller
         );
 
         return redirect()->back()->with($notification);
-    }
-    // End DeleteBrand
+
+    } // End DeleteCategory
+
 
 
 }

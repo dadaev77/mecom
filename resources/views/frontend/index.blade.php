@@ -558,12 +558,6 @@
 
 
 
-
-
-
-
-
-
     <!--Vendor List -->
 
 @include('frontend.home.home_vendor_list')

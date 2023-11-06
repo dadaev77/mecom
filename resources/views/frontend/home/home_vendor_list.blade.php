@@ -61,7 +61,7 @@ $vendors = App\Models\User::where('status', 'active')->where('role', 'vendor')->
                                     Us:</strong><span>{{$vendor->phone}}</span></li>
                         </ul>
                     </div>
-                    <a href="vendor-details-1.html" class="btn btn-xs">Visit Store <i class="fi-rs-arrow-small-right"></i></a>
+                    <a href="{{route('vendor.details', $vendor->id)}}" class="btn btn-xs">Visit Store <i class="fi-rs-arrow-small-right"></i></a>
                 </div>
             </div>
         </div>

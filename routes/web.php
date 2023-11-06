@@ -211,3 +211,4 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 /// Frontend Product Details All Route
 
 Route::get('/product/details/{id}/{slug}', [IndexController::class, 'ProductDetails']);
+Route::get('/details/{id}/', [IndexController::class, 'VendorDetails'])->name('vendor.details');

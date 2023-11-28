@@ -5,10 +5,10 @@
             <div class="archive-header">
                 <div class="row align-items-center">
                     <div class="col-xl-3">
-                        <h3 class="mb-15">{{ $breadcat->category_name }}</h3>
+                        <h3 class="mb-15">{{ $breadsubcat->subcategory_name }}</h3>
                         <div class="breadcrumb">
                             <a href="index.html" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
-                            <span></span> {{ $breadcat->category_name }}
+                            <span></span> {{ $breadsubcat->subcategory_name }}
                         </div>
                     </div>
 
@@ -106,7 +106,7 @@
                                 </div>
                                 <div class="product-content-wrap">
                                     <div class="product-category">
-                                        <a href="shop-grid-right.html">{{ $product['category']['category_name'] }}</a>
+                                        <a href="shop-grid-right.html">{{ $product['subcategory']['subcategory_name'] }}</a>
                                     </div>
                                     <h2><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}"> {{ $product->product_name }} </a></h2>
                                     <div class="product-rate-cover">
@@ -209,26 +209,26 @@
                 <div class="sidebar-widget product-sidebar mb-30 p-30 bg-grey border-radius-10">
                     <h5 class="section-title style-1 mb-30">New products</h5>
 
-@foreach($newProduct as $product)
+                    @foreach($newProduct as $product)
 
-                    <div class="single-post clearfix">
-                        <div class="image">
-                            <img src="{{ asset( $product->product_thambnail ) }}" alt="#" />
-                        </div>
-                        <div class="content pt-10">
-                            <p><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}">{{$product->product_name}}</a></p>
-                            @if($product->discount_price == NULL)
-                                <p class="price mb-0 mt-5">${{$product->selling_price}}</p>
-                            @else
-                                <p class="price mb-0 mt-5">${{$product->discount_price}}</p>
-                            @endif
+                        <div class="single-post clearfix">
+                            <div class="image">
+                                <img src="{{ asset( $product->product_thambnail ) }}" alt="#" />
+                            </div>
+                            <div class="content pt-10">
+                                <p><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug) }}">{{$product->product_name}}</a></p>
+                                @if($product->discount_price == NULL)
+                                    <p class="price mb-0 mt-5">${{$product->selling_price}}</p>
+                                @else
+                                    <p class="price mb-0 mt-5">${{$product->discount_price}}</p>
+                                @endif
 
-                            <div class="product-rate">
-                                <div class="product-rating" style="width: 90%"></div>
+                                <div class="product-rate">
+                                    <div class="product-rating" style="width: 90%"></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                <
+                        <
                     @endforeach
                 </div>
 

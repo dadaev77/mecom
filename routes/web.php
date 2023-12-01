@@ -210,4 +210,6 @@ Route::get('/product/subcategory/{id}/{slug}', [IndexController::class, 'SubCatW
 
 // Product View Modal With Ajax
 
-Route::get('/product/view/modal/{id}', [IndexController::class, 'ProductViewAjax']);
+
+
+Route::get('product/view/modal/{id}', [IndexController::class, 'ProductViewAjax']);

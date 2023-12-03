@@ -5,10 +5,12 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Easy Shop Online Store</title>
+    <title>Easy Shop Online Store </title>
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="description" content="" />
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta property="og:title" content="" />
     <meta property="og:type" content="" />
@@ -19,6 +21,7 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/plugins/animate.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/main.css?v=5.3') }}" />
+
 </head>
 
 <body>
@@ -26,11 +29,11 @@
 
 <!-- Quick view -->
 @include('frontend.body.quickview')
-
 <!-- Header  -->
-@include('frontend.body.header')
 
-<!-- End Header  -->
+@include('frontend.body.header')
+<!--End header-->
+
 
 
 <main class="main">
@@ -38,11 +41,7 @@
 
 </main>
 
-<!-- Footer  -->
 @include('frontend.body.footer')
-<!--End Footer  -->
-
-
 
 
 
@@ -81,20 +80,21 @@
 <script src="{{ asset('frontend/assets/js/shop.js?v=5.3') }}"></script>
 
 
+
 <script type="text/javascript">
 
     $.ajaxSetup({
         headers:{
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
         }
-    });
+    })
 
-    /// Start product view with Modal
+    //// Start product view with Modal
 
     function productView(id){
         // alert(id)
         $.ajax({
-            type: 'POST',
+            type: 'GET',
             url: '/product/view/modal/'+id,
             dataType: 'json',
             success:function(data){
@@ -106,7 +106,8 @@
                 $('#pcategory').text(data.product.category.category_name);
                 $('#pbrand').text(data.product.brand.brand_name);
                 $('#pimage').attr('src','/'+data.product.product_thambnail );
-                $('#product_id').val();
+
+                $('#product_id').val(id);
                 $('#qty').val(1);
 
 
@@ -119,24 +120,25 @@
                 }else{
                     $('#pprice').text(data.product.discount_price);
                     $('#oldprice').text(data.product.selling_price);
-                } // end else
+                } // End Else
 
 
-                /// Start Stock Option
-                if (data.product.product_qty > 0){
+                // Start Stock Option
+
+                if (data.product.product_qty > 0) {
                     $('#aviable').text('');
                     $('#stockout').text('');
                     $('#aviable').text('aviable');
-                }else {
+
+                }else{
                     $('#aviable').text('');
                     $('#stockout').text('');
                     $('#stockout').text('stockout');
                 }
+                // End Start Stock Option
 
-                /// End Start Stock Option
+                //Size
 
-
-                ///Size
                 $('select[name="size"]').empty();
                 $.each(data.size,function(key,value){
                     $('select[name="size"]').append('<option value="'+value+' ">'+value+'  </option')
@@ -145,7 +147,7 @@
                     }else{
                         $('#sizeArea').show();
                     }
-                }) // end Size
+                }) // End Size
 
 
                 ///Color
@@ -159,6 +161,9 @@
                     }
                 }) // End Color
 
+
+
+
             }
         })
     }
@@ -166,16 +171,15 @@
     //// End Product View With Modal
 
 
-
-
-    //// Start Add To Cart Product
+    /// Start Add To Cart Prodcut
 
     function addToCart(){
-        let product_name = $('#pname').text();
-        let id = $('#product_id').val();
-        let color = $('#color option:selected').text();
-        let size = $('#size option:selected').text();
-        let quantity = $('#qty').val();
+
+        var product_name = $('#pname').text();
+        var id = $('#product_id').val();
+        var color = $('#color option:selected').text();
+        var size = $('#size option:selected').text();
+        var quantity = $('#qty').val();
         $.ajax({
             type: "POST",
             dataType : 'json',
@@ -184,15 +188,36 @@
             },
             url: "/cart/data/store/"+id,
             success:function(data){
+                $('#closeModal').click();
                 console.log(data)
             }
+
+
+
         })
+
+
     }
 
-    //// End Add To Cart Product
+
+    //// End Add To Cart Prodcut
 
 
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 
 </html>

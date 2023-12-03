@@ -106,6 +106,8 @@
                 $('#pcategory').text(data.product.category.category_name);
                 $('#pbrand').text(data.product.brand.brand_name);
                 $('#pimage').attr('src','/'+data.product.product_thambnail );
+                $('#product_id').val();
+                $('#qty').val(1);
 
 
                 // Product Price
@@ -157,10 +159,39 @@
                     }
                 }) // End Color
 
-
             }
         })
     }
+
+    //// End Product View With Modal
+
+
+
+
+    //// Start Add To Cart Product
+
+    function addToCart(){
+        let product_name = $('#pname').text();
+        let id = $('#product_id').val();
+        let color = $('#color option:selected').text();
+        let size = $('#size option:selected').text();
+        let quantity = $('#qty').val();
+        $.ajax({
+            type: "POST",
+            dataType : 'json',
+            data:{
+                color:color, size:size, quantity:quantity,product_name:product_name
+            },
+            url: "/cart/data/store/"+id,
+            success:function(data){
+                console.log(data)
+            }
+        })
+    }
+
+    //// End Add To Cart Product
+
+
 </script>
 </body>
 

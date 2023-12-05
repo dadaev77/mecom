@@ -113,6 +113,8 @@
                                 </a>
                                 <a href="shop-wishlist.html"><span class="lable">Wishlist</span></a>
                             </div>
+
+
                             <div class="header-action-icon-2">
                                 <a class="mini-cart-icon" href="shop-cart.html">
                                     <img alt="Nest" src="{{ asset('frontend/assets/imgs/theme/icons/icon-cart.svg') }}"/>
@@ -120,34 +122,15 @@
                                 </a>
                                 <a href="shop-cart.html"><span class="lable">Cart</span></a>
                                 <div class="cart-dropdown-wrap cart-dropdown-hm2">
-                                    <ul>
-                                        <li>
-                                            <div class="shopping-cart-img">
-                                                <a href="shop-product-right.html"><img alt="Nest"
-                                                                                       src="{{ asset('frontend/assets/imgs/shop/thumbnail-3.jpg') }}"/></a>
-                                            </div>
-                                            <div class="shopping-cart-title">
-                                                <h4><a href="shop-product-right.html">Daisy Casual Bag</a></h4>
-                                                <h4><span>1 × </span>$800.00</h4>
-                                            </div>
-                                            <div class="shopping-cart-delete">
-                                                <a href="#"><i class="fi-rs-cross-small"></i></a>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="shopping-cart-img">
-                                                <a href="shop-product-right.html"><img alt="Nest"
-                                                                                       src="{{ asset('frontend/assets/imgs/shop/thumbnail-2.jpg') }}"/></a>
-                                            </div>
-                                            <div class="shopping-cart-title">
-                                                <h4><a href="shop-product-right.html">Corduroy Shirts</a></h4>
-                                                <h4><span>1 × </span>$3200.00</h4>
-                                            </div>
-                                            <div class="shopping-cart-delete">
-                                                <a href="#"><i class="fi-rs-cross-small"></i></a>
-                                            </div>
-                                        </li>
-                                    </ul>
+
+                                    {{--// Start Mini Cart With Ajax--}}
+
+                                    <div id="miniCart">
+
+                                    </div>
+                                    {{--// End Mini Cart With Ajax--}}
+
+
                                     <div class="shopping-cart-footer">
                                         <div class="shopping-cart-total">
                                             <h4>Total <span>$4000.00</span></h4>
@@ -235,14 +218,16 @@
                                 <ul>
                                     @foreach($categories as $item)
                                         <li>
-                                            <a href="shop-grid-right.html"> <img src="{{ asset( $item->category_image ) }}" alt=""/> {{ $item->category_name }} </a>
+                                            <a href="shop-grid-right.html"> <img src="{{ asset( $item->category_image ) }}"
+                                                                                 alt=""/> {{ $item->category_name }} </a>
                                         </li>
                                     @endforeach
                                 </ul>
                                 <ul class="end">
                                     @foreach($categories as $item)
                                         <li>
-                                            <a href="shop-grid-right.html"> <img src="{{ asset( $item->category_image ) }}" alt=""/> {{ $item->category_name }} </a>
+                                            <a href="shop-grid-right.html"> <img src="{{ asset( $item->category_image ) }}"
+                                                                                 alt=""/> {{ $item->category_name }} </a>
                                         </li>
                                     @endforeach
 

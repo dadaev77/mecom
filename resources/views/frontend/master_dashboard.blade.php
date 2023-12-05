@@ -191,6 +191,7 @@
             },
             url: "/cart/data/store/"+id,
             success:function(data){
+                miniCart();
                 $('#closeModal').click();
                // console.log(data)
                 // Start Message
@@ -238,6 +239,9 @@
             dataType: 'json',
             success:function(response){
                 // console.log(response)
+
+                $('span[id="cartSubTotal"]').text(response.cartTotal);
+                $('#cartQty').text(response.cartQty);
 
 
                 var miniCart = ""

@@ -174,7 +174,7 @@
     //// End Product View With Modal
 
 
-    /// Start Add To Cart Prodcut
+    /// Start Add To Cart Product
 
     function addToCart(){
 
@@ -194,8 +194,8 @@
                 miniCart();
                 $('#closeModal').click();
                // console.log(data)
-                // Start Message
 
+                // Start Message
                 const Toast = Swal.mixin({
                     toast: true,
                     position: 'top-end',
@@ -225,6 +225,54 @@
     }
 
     //// End Add To Cart Product
+
+
+    /// Start Details Page Add To Cart Product
+
+    function addToCartDetails(){
+        var product_name = $('#dpname').text();
+        var id = $('#dproduct_id').val();
+        var color = $('#dcolor option:selected').text();
+        var size = $('#dsize option:selected').text();
+        var quantity = $('#dqty').val();
+        $.ajax({
+            type: "POST",
+            dataType : 'json',
+            data:{
+                color:color, size:size, quantity:quantity,product_name:product_name
+            },
+            url: "/dcart/data/store/"+id,
+            success:function(data){
+                miniCart();
+
+                // console.log(data)
+                // Start Message
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    icon: 'success',
+                    showConfirmButton: false,
+                    timer: 3000
+                })
+                if ($.isEmptyObject(data.error)) {
+
+                    Toast.fire({
+                        type: 'success',
+                        title: data.success,
+                    })
+                }else{
+
+                    Toast.fire({
+                        type: 'error',
+                        title: data.error,
+                    })
+                }
+                // End Message
+            }
+        })
+    }
+
+    /// End Details Page Add To Cart Product
 
 
 </script>

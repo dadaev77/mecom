@@ -105,7 +105,7 @@ Route::middleware(['auth', 'role:vendor'])->group(function () {
 
         Route::get('/vendor/subcategory/ajax/{category_id}', 'VendorGetSubCategory');
     });
-}); // End group middleware
+}); // Vendor End group middleware
 
 
 //// Registration log
@@ -115,7 +115,7 @@ Route::get('/become/vendor', [VendorController::class, 'BecomeVendor'])->name('b
 Route::post('/vendor/register', [VendorController::class, 'VendorRegister'])->name('vendor.register');
 
 
-//// Start middleware
+//// Start middleware Administration
 Route::middleware(['auth', 'role:admin'])->group(function () {
     // Brand All Route
     Route::controller(BrandController::class)->group(function () {
@@ -230,3 +230,18 @@ Route::post('/dcart/data/store/{id}', [CartController::class, 'AddToCartDetails'
 
 /// Add to Wishlist
 Route::post('/add-to-wishlist/{product_id}', [WishlistController::class, 'AddToWishList']);
+
+
+/// User All Route
+
+Route::middleware(['auth','role:user'])->group(function() {
+
+
+    // Wishlist All Route
+
+    Route::controller(WishlistController::class)->group(function(){
+
+        Route::get('/wishlist' , 'AllWishlist')->name('wishlist');
+    });
+
+}); // User End Group Middleware

@@ -35,4 +35,11 @@ class WishlistController extends Controller
         }
 
     } // End AddToWishlist
+
+
+    public function AllWishlist(){
+
+        return view('frontend.wishlist.view_wishlist');
+
+    } // End AllWishlist
 }

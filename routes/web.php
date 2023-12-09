@@ -250,4 +250,10 @@ Route::middleware(['auth','role:user'])->group(function() {
         Route::get('/wishlist-remove/{id}' , 'WishlistRemove');
     });
 
+    // Compare All Route
+    Route::controller(CompareController::class)->group(function(){
+        Route::get('/compare' , 'AllCompare')->name('compare');
+
+    });
+
 }); // User End Group Middleware

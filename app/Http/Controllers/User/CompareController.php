@@ -32,5 +32,12 @@ class CompareController extends Controller
             return response()->json(['error' => 'At First Login Your Account' ]);
         }
 
-    } // End
+    } // End AddToCompare
+
+
+    public function AllCompare(){
+        return view('frontend.compare.view_compare');
+    }
+
+
 }

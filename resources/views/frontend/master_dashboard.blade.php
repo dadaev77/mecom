@@ -369,6 +369,7 @@
             dataType: 'json',
             url: "/add-to-wishlist/"+product_id,
             success:function(data){
+                wishlist();
                 // Start Message
                 const Toast = Swal.mixin({
                     toast: true,
@@ -411,6 +412,8 @@
             url: "/get-wishlist-product/",
             success:function(response){
 
+                $('#wishQty').text(response.wishQty);
+
                 var rows = ""
                 $.each(response.wishlist, function(key,value){
                     rows += `<tr class="pt-30">
@@ -443,7 +446,7 @@
                         </td>
 
                         <td class="action text-center" data-title="Remove">
-                            <a href="#" class="text-body"><i class="fi-rs-trash"></i></a>
+                           <a type="submit" class="text-body" id="${value.id}" onclick="wishlistRemove(this.id)" ><i class="fi-rs-trash"></i></a>
                         </td>
                     </tr> `
                 });
@@ -453,9 +456,50 @@
         })
     }
     wishlist();
+    /// End Load Wishlist Data
+
+
+    /// Start Wishlist Remove
+    function wishlistRemove(id){
+        $.ajax({
+            type: "GET",
+            dataType: 'json',
+            url: "/wishlist-remove/"+id,
+            success:function(data){
+                wishlist();
+                // Start Message
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+
+                    showConfirmButton: false,
+                    timer: 3000
+                })
+                if ($.isEmptyObject(data.error)) {
+
+                    Toast.fire({
+                        type: 'success',
+                        icon: 'success',
+                        title: data.success,
+                    })
+                }else{
+
+                    Toast.fire({
+                        type: 'error',
+                        icon: 'error',
+                        title: data.error,
+                    })
+                }
+                // End Message
+            }
+        })
+    }
+    /// End Wishlist Remove
+
+
 
 </script>
-<!--  /// End Load Wishlist Data -->
+
 
 
 

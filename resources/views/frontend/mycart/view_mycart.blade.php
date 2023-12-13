@@ -37,7 +37,7 @@
                             <th scope="col" class="end">Remove</th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="cartPage">
 
 
                         <tr class="pt-30">

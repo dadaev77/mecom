@@ -48,7 +48,7 @@ Route::middleware(['auth'])->group(function () {
 
 require __DIR__ . '/auth.php';
 
-//// Admin Dashboard
+/* Admin Start Dashboard*/
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])
         ->name('admin.dashboard');
@@ -67,9 +67,11 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
     Route::post('/admin/update/password', [AdminController::class, 'AdminUpdatePassword'])
         ->name('update.password');
-});
+}); // Admin End Dashboard
 
-//// Vendor Dashboard
+
+
+/*Vendor Start group middleware*/
 Route::middleware(['auth', 'role:vendor'])->group(function () {
     Route::get('/vendor/dashboard', [VendorController::class, 'VendorDashboard'])
         ->name('vendor.dashboard');
@@ -116,7 +118,7 @@ Route::get('/become/vendor', [VendorController::class, 'BecomeVendor'])->name('b
 Route::post('/vendor/register', [VendorController::class, 'VendorRegister'])->name('vendor.register');
 
 
-//// Start middleware Administration
+/* Administration Start middleware */
 Route::middleware(['auth', 'role:admin'])->group(function () {
     // Brand All Route
     Route::controller(BrandController::class)->group(function () {
@@ -199,11 +201,11 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::post('/update/banner', 'UpdateBanner')->name('update.banner');
         Route::get('/delete/banner/{id}', 'DeleteBanner')->name('delete.banner');
     });
-});
-//// Admin End middleware
+}); // Administration End middleware
 
 
-/// Frontend Product Details All Route
+
+//// Frontend Product Details All Route
 
 Route::get('/product/details/{id}/{slug}', [IndexController::class, 'ProductDetails']);
 Route::get('/details/{id}/', [IndexController::class, 'VendorDetails'])->name('vendor.details');
@@ -212,7 +214,7 @@ Route::get('/product/category/{id}/{slug}', [IndexController::class, 'CatWisePro
 Route::get('/product/subcategory/{id}/{slug}', [IndexController::class, 'SubCatWiseProduct']);
 
 
-// Product View Modal With Ajax
+//// Product View Modal With Ajax
 
 Route::get('product/view/modal/{id}', [IndexController::class, 'ProductViewAjax']);
 
@@ -222,21 +224,21 @@ Route::get('product/view/modal/{id}', [IndexController::class, 'ProductViewAjax'
 Route::post('/cart/data/store/{id}', [CartController::class, 'AddToCart']);
 
 
-// Get Data from mini Cart
+//// Get Data from mini Cart
 Route::get('/product/mini/cart', [CartController::class, 'AddMiniCart']);
 Route::get('/minicart/product/remove/{rowId}', [CartController::class, 'RemoveMiniCart']);
 
-/// Add to cart store data For Product Details Page
+//// Add to cart store data For Product Details Page
 Route::post('/dcart/data/store/{id}', [CartController::class, 'AddToCartDetails']);
 
-/// Add to Wishlist
+//// Add to Wishlist
 Route::post('/add-to-wishlist/{product_id}', [WishlistController::class, 'AddToWishList']);
 
-/// Add to Compare
+//// Add to Compare
 Route::post('/add-to-compare/{product_id}', [CompareController::class, 'AddToCompare']);
 
 
-/// User All Route
+/* User All Route*/
 
 Route::middleware(['auth','role:user'])->group(function() {
 
@@ -255,6 +257,13 @@ Route::middleware(['auth','role:user'])->group(function() {
         Route::get('/compare' , 'AllCompare')->name('compare');
         Route::get('/get-compare-product' , 'GetCompareProduct');
         Route::get('/compare-remove/{id}' , 'CompareRemove');
+
+    });
+
+    // Cart All Route
+    Route::controller(CartController::class)->group(function(){
+        Route::get('/mycart' , 'MyCart')->name('mycart');
+
 
     });
 

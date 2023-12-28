@@ -16,6 +16,7 @@ use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Controllers\Backend\VendorProductController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Frontend\CartController;
+use App\Http\Controllers\Backend\CouponController;
 
 
 /*
@@ -195,6 +196,17 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     // Banner All Route
     Route::controller(BannerController::class)->group(function () {
         Route::get('/all/banner', 'AllBanner')->name('all.banner');
+        Route::get('/add/banner', 'AddBanner')->name('add.banner');
+        Route::post('/store/banner', 'StoreBanner')->name('store.banner');
+        Route::get('/edit/banner/{id}', 'EditBanner')->name('edit.banner');
+        Route::post('/update/banner', 'UpdateBanner')->name('update.banner');
+        Route::get('/delete/banner/{id}', 'DeleteBanner')->name('delete.banner');
+    });
+
+
+    // Coupon All Route
+    Route::controller(CouponController::class)->group(function () {
+        Route::get('/all/coupon', 'AllCoupon')->name('all.coupon');
         Route::get('/add/banner', 'AddBanner')->name('add.banner');
         Route::post('/store/banner', 'StoreBanner')->name('store.banner');
         Route::get('/edit/banner/{id}', 'EditBanner')->name('edit.banner');

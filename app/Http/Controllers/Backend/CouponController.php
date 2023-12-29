@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Coupon;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 
@@ -13,4 +14,34 @@ class CouponController extends Controller
         $coupon = Coupon::latest()->get();
         return view('backend.coupon.coupon_all',compact('coupon'));
     } // End AllCoupon
+
+
+
+    public function AddCoupon(){
+        return view('backend.coupon.coupon_add');
+    } // End AddCoupon
+
+
+
+    public function StoreCoupon(Request $request){
+
+        Coupon::insert([
+            'coupon_name' => strtoupper($request->coupon_name),
+            'coupon_discount' => $request->coupon_discount,
+            'coupon_validity' => $request->coupon_validity,
+            'created_at' => Carbon::now(),
+        ]);
+
+        $notification = array(
+            'message' => 'Coupon Inserted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.coupon')->with($notification);
+
+    } // End StoreCoupon
+
+
+
+
 }

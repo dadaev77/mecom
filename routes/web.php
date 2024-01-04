@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\BannerController;
+use App\Http\Controllers\Backend\ShippingAreaController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\User\CompareController;
 use App\Http\Controllers\User\WishlistController;
@@ -212,6 +213,18 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/edit/coupon/{id}' , 'EditCoupon')->name('edit.coupon');
         Route::post('/update/coupon' , 'UpdateCoupon')->name('update.coupon');
         Route::get('/delete/coupon/{id}' , 'DeleteCoupon')->name('delete.coupon');
+    });
+
+
+    // Shipping Division All Route
+    Route::controller(ShippingAreaController::class)->group(function(){
+        Route::get('/all/division' , 'AllDivision')->name('all.division');
+        Route::get('/add/division' , 'AddDivision')->name('add.division');
+        Route::post('/store/division' , 'StoreDivision')->name('store.division');
+        Route::get('/edit/coupon/{id}' , 'EditCoupon')->name('edit.coupon');
+        Route::post('/update/coupon' , 'UpdateCoupon')->name('update.coupon');
+        Route::get('/delete/coupon/{id}' , 'DeleteCoupon')->name('delete.coupon');
+
     });
 }); // Administration End middleware
 

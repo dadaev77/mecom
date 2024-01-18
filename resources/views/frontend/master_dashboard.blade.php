@@ -80,7 +80,7 @@
 <script src="{{ asset('frontend/assets/js/shop.js?v=5.3') }}"></script>
 
 <!--Sweetalert -->
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{{ asset('adminbackend/assets/js/sweetalert2.all.min.js') }}"></script>
 
 
 

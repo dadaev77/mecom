@@ -127,7 +127,7 @@
     @endif
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="{{ asset('adminbackend/assets/js/sweetalert2.all.min.js') }}"></script>
 <script src="{{ asset('adminbackend/assets/js/code.js') }}"></script>
 
 <script src="{{ asset('adminbackend/assets/plugins/input-tags/js/tagsinput.js') }}"></script>

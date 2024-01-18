@@ -81,4 +81,39 @@ class ShippingAreaController extends Controller
 
 
     } // End DeleteDivision
+
+
+
+    /////////////// District CRUD ///////////////
+
+
+    public function AllDistrict(){
+        $district = ShipDistricts::latest()->get();
+        return view('backend.ship.district.district_all',compact('district'));
+    } // End AllDistrict
+
+
+
+    public function AddDistrict(){
+        $division = ShipDivision::orderBy('division_name','ASC')->get();
+        return view('backend.ship.district.district_add',compact('division'));
+    } // End AddDistrict
+
+
+
+    public function StoreDistrict(Request $request){
+
+        ShipDistricts::insert([
+            'division_id' => $request->division_id,
+            'district_name' => $request->district_name,
+        ]);
+
+        $notification = array(
+            'message' => 'ShipDistricts Inserted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.district')->with($notification);
+
+    } // End StoreDistrict
 }

@@ -34,7 +34,7 @@ COPY routes         /var/www/routes
 COPY storage        /var/www/storage
 COPY artisan        /var/www/artisan
 COPY package.json   /var/www/package.json
-COPY webpack.mix.js /var/www/vite.config.js
+
 
 
 COPY composer.*  ./

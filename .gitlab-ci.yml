@@ -17,7 +17,6 @@ app_build:
     - build
   only:
     - develop
-    - tags
   script:
     - docker build --build-arg NODE_ENV="dev" -t "$REGISTRY/dev/app:$CI_COMMIT_SHA" -f ./_docker/gitlab/app/Dockerfile .
     - docker push "$REGISTRY/dev/app:$CI_COMMIT_SHA"

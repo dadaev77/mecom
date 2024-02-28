@@ -49,19 +49,3 @@ services:
     command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
     container_name: ${CONTAINER_PREFIX}_db
 
-
-  phpmyadmin:
-    image: phpmyadmin:latest
-    container_name: php-phpmyadmin
-    restart: unless-stopped
-    environment:
-      - PMA_ARBITRARY=1
-      - UPLOAD_LIMIT=1024M
-      - MEMORY_LIMIT=1024M
-      - MAX_EXECUTION_TIME=300
-    ports:
-      - 8080:80
-    depends_on:
-      - db
-    volumes:
-      - /sessions

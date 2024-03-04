@@ -10,21 +10,24 @@ use App\Models\ShipState;
 use Carbon\Carbon;
 
 class ShippingAreaController extends Controller
-{
-    public function AllDivision(){
+{                  /////////////// Division CRUD ///////////////
+    public function AllDivision()
+    {
         $division = ShipDivision::latest()->get();
         return view('backend.ship.division.division_all',compact('division'));
     } // End AllDivision
 
 
 
-    public function AddDivision(){
+    public function AddDivision()
+    {
         return view('backend.ship.division.division_add');
     } // End AddDivision
 
 
 
-    public function StoreDivision(Request $request){
+    public function StoreDivision(Request $request)
+    {
 
         ShipDivision::insert([
             'division_name' => $request->division_name,
@@ -41,7 +44,8 @@ class ShippingAreaController extends Controller
 
 
 
-    public function EditDivision($id){
+    public function EditDivision($id)
+    {
 
         $division = ShipDivision::findOrFail($id);
         return view('backend.ship.division.division_edit',compact('division'));
@@ -49,7 +53,8 @@ class ShippingAreaController extends Controller
     } // End EditDivision
 
 
-    public function UpdateDivision(Request $request){
+    public function UpdateDivision(Request $request)
+    {
 
         $division_id = $request->id;
 
@@ -68,7 +73,8 @@ class ShippingAreaController extends Controller
     } // End UpdateDivision
 
 
-    public function DeleteDivision($id){
+    public function DeleteDivision($id)
+    {
 
         ShipDivision::findOrFail($id)->delete();
 
@@ -87,21 +93,24 @@ class ShippingAreaController extends Controller
     /////////////// District CRUD ///////////////
 
 
-    public function AllDistrict(){
+    public function AllDistrict()
+    {
         $district = ShipDistricts::latest()->get();
         return view('backend.ship.district.district_all',compact('district'));
     } // End AllDistrict
 
 
 
-    public function AddDistrict(){
+    public function AddDistrict()
+    {
         $division = ShipDivision::orderBy('division_name','ASC')->get();
         return view('backend.ship.district.district_add',compact('division'));
     } // End AddDistrict
 
 
 
-    public function StoreDistrict(Request $request){
+    public function StoreDistrict(Request $request)
+    {
 
         ShipDistricts::insert([
             'division_id' => $request->division_id,
@@ -119,7 +128,8 @@ class ShippingAreaController extends Controller
 
 
 
-    public function EditDistrict($id){
+    public function EditDistrict($id)
+    {
         $division = ShipDivision::orderBy('division_name','ASC')->get();
         $district = ShipDistricts::findOrFail($id);
         return view('backend.ship.district.district_edit',compact('district','division'));
@@ -127,7 +137,8 @@ class ShippingAreaController extends Controller
     } // End UpdateDistrict
 
 
-    public function UpdateDistrict(Request $request){
+    public function UpdateDistrict(Request $request)
+    {
 
         $district_id = $request->id;
 
@@ -147,7 +158,8 @@ class ShippingAreaController extends Controller
     } // End UpdateDistrict
 
 
-    public function DeleteDistrict($id){
+    public function DeleteDistrict($id)
+    {
 
         ShipDistricts::findOrFail($id)->delete();
 
@@ -160,4 +172,30 @@ class ShippingAreaController extends Controller
 
 
     } // End DeleteDistrict
+
+
+    /////////////// State CRUD ///////////////
+
+
+    public function AllState()
+    {
+        $state = ShipState::latest()->get();
+        return view('backend.ship.state.state_all',compact('state'));
+    } // End AllState
+
+
+    public function AddState()
+    {
+        $division = ShipDivision::orderBy('division_name','ASC')->get();
+        $district = ShipDistricts::orderBy('district_name','ASC')->get();
+        return view('backend.ship.state.state_add',compact('division', 'district'));
+
+    }
+
+
+    public function GetDistrict($division_id){
+        $dist = ShipDistricts::where('division_id',$division_id)->orderBy('district_name','ASC')->get();
+        return json_encode($dist);
+
+    } //End GetDistrict
 }

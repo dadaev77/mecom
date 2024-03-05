@@ -15,7 +15,7 @@ class ShipState extends Model
     }
 
     public function district(){
-        return $this->belongsTo(ShipDistricts::class,'division_id','id');
+        return $this->belongsTo(ShipDistricts::class,'district_id','id');
     }
 
 }

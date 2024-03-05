@@ -16,7 +16,7 @@
             </div>
             <div class="ms-auto">
                 <div class="btn-group">
-                    <a href="{{ route('add.state') }}" class="btn btn-primary">Add District</a>
+                    <a href="{{ route('add.state') }}" class="btn btn-primary">Add State</a>
                 </div>
             </div>
         </div>
@@ -37,7 +37,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($state as $key => $item)
+                        @foreach( $state as $key => $item )
                             <tr>
                                 <td> {{ $key+1 }} </td>
                                 <td> {{ $item['division']['division_name'] }}</td>
